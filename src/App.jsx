@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Beams from './components/Beams'
 import './App.css'
 import Navbar from './components/Navbar'
+import AboutMe from './components/AboutMe'
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
         />
       </div>
       <Navbar />
+      <div className='about-container'>
+        <AboutMe />
+      </div>
       {/* Foreground content */}
     </>
   )
