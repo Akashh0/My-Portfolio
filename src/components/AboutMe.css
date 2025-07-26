@@ -25,10 +25,12 @@
 }
 
 .about-right {
+  position: relative;
   flex: 2;
   min-width: 300px;
   color: white;
   font-family: inherit;
+  bottom: 125px;
 }
 
 .about-right h2 {
@@ -55,9 +57,13 @@
     gap: 2rem;
     text-align: center;
   }
+  .about-right {
+    bottom: 20px;
+    
+  }
 
   .about-right p {
-    text-align: center;
+    text-align: left;
   }
 
   .about-right h2 {

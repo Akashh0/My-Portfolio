@@ -4,6 +4,8 @@ import './App.css'
 import Navbar from './components/Navbar'
 import AboutMe from './components/AboutMe'
 import Skills from './components/Skills'
+import ProjectsGallery from './components/ProjectsGallery'
+
 function App() {
   return (
     <>
@@ -34,6 +36,7 @@ function App() {
       <div className='skill-container'>
         <Skills />
       </div>
+      <ProjectsGallery />
       {/* Foreground content */}
     </>
   )

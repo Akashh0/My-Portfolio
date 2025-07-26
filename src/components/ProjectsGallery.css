@@ -1,0 +1,75 @@
+.projects-gallery-container {
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+}
+
+.projects-heading {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.carousel-bend-wrapper {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  perspective: 1000px;
+}
+
+.carousel-bend-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+}
+
+
+.project-card {
+  min-width: 300px;
+  transform: rotateY(-12deg);
+  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.project-card:hover {
+  transform: scale(1.05) rotateY(0deg);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  padding: 1rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    width: 260px;
+    transform: rotateY(-5deg);
+  }
+
+  .projects-heading {
+    font-size: 1.5rem;
+  }
+}
