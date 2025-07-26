@@ -1,0 +1,63 @@
+.skills-section {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  background: transparent;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 3rem 2rem;
+  max-width: 1500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.skills-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+
+.skills-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #c4c4c4;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ffff33;
+}
+
+.skill-card p {
+  margin-top: 0.5rem;
+  color: #ffffff;
+}
+
+.skill-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.5rem;
+  object-fit: contain;
+}

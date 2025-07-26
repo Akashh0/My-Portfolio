@@ -3,7 +3,7 @@ import Beams from './components/Beams'
 import './App.css'
 import Navbar from './components/Navbar'
 import AboutMe from './components/AboutMe'
-
+import Skills from './components/Skills'
 function App() {
   return (
     <>
@@ -30,6 +30,9 @@ function App() {
       <Navbar />
       <div className='about-container'>
         <AboutMe />
+      </div>
+      <div className='skill-container'>
+        <Skills />
       </div>
       {/* Foreground content */}
     </>
