@@ -4,26 +4,32 @@ import HorizonX from "../assets/HorizonX.jpg"
 import Github from "../assets/Github-Tracker.jpg"
 import Career from "../assets/Career.png"
 import Emotion from "../assets/Emotion.png"
+import Resumate from "../assets/Resumate.jpg"
 const projects = [
   {
     image: HorizonX,
     title: 'Weather App',
+    src: 'https://akashh0.github.io/WeatherSite/',
   },
   {
     image: Emotion,
     title: 'Emotion Detection using Wave Format',
+    src: 'https://github.com/Akashh0/Emotion-Detection-Using-Wave-Format',
   },
   {
     image: Career,
     title: 'Career Path Recommendation (ML Model)',
+    src: 'https://github.com/Akashh0/Career-Roadmap-ML-Model',
   },
   {
-    image: '',
+    image: Resumate,
     title: 'Resume Analyzer',
+    src: 'https://github.com/Akashh0/Resumate',
   },
   {
     image: Github,
     title: 'GitHub Globe',
+    src: 'https://akashh0.github.io/Github-Tracker/',
   },
 ]
 
@@ -56,10 +62,10 @@ export default function ProjectsGallery() {
       <div className="carousel-bend-wrapper" ref={scrollRef}>
         <div className="carousel-track">
           {[...projects, ...projects].map((project, index) => (
-            <div className="project-card" key={index}>
+            <a key={index} href={project.src} className="project-card" target="_blank" rel="noopener noreferrer">
               <img src={project.image} alt={project.title} />
               <p>{project.title}</p>
-            </div>
+            </a>
           ))}
         </div>
       </div>

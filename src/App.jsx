@@ -5,6 +5,8 @@ import Navbar from './components/Navbar'
 import AboutMe from './components/AboutMe'
 import Skills from './components/Skills'
 import ProjectsGallery from './components/ProjectsGallery'
+import CertificationsGrid from './components/CertificationsScroll'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
       </div>
       <ProjectsGallery />
       {/* Foreground content */}
+      <CertificationsGrid />
+      <Footer />
     </>
   )
 }

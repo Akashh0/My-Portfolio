@@ -1,0 +1,244 @@
+:root {
+  /* Design Tokens for easy customization */
+  --bg-color: #0D0D10;
+  --surface-color: rgba(24, 24, 28, 0.7);
+  --primary-text-color: #F0F0F0;
+  --secondary-text-color: #9A9A9A;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-color: #ffffff;
+  --line-color: #333;
+  --dot-glow-color: rgba(255, 255, 255, 0.5);
+
+  /* Sizing & Spacing */
+  --container-max-width: 2000px;
+  --timeline-height: 400px;
+  --item-width: 320px;
+  --card-width: 280px;
+  --card-gap: 45px;
+  --border-radius: 20px;
+}
+
+/* Container with a subtle gradient and custom scrollbar */
+.timeline-container-horizontal {
+  font-family: system-ui, sans-serif;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 4rem auto;
+  padding: 2rem 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(6px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Scrollbar Styling */
+.timeline-container-horizontal::-webkit-scrollbar {
+  height: 12px;
+}
+.timeline-container-horizontal::-webkit-scrollbar-track {
+  background: transparent;
+}
+.timeline-container-horizontal::-webkit-scrollbar-thumb {
+  background-color: #222;
+  border-radius: 10px;
+  border: 3px solid var(--bg-color);
+}
+.timeline-container-horizontal::-webkit-scrollbar-thumb:hover {
+  background-color: #444;
+}
+
+.timeline-heading {
+  padding: 0 2rem;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-text-color);
+  font-weight: 600;
+}
+
+.timeline-horizontal {
+  display: flex;
+  /* This width should be roughly (item-count * item-width) */
+  min-width: 3200px; 
+  position: relative;
+  height: var(--timeline-height);
+  padding: 0 50px;
+  box-sizing: border-box;
+}
+
+/* The horizontal line with a gradient shine */
+.timeline-horizontal::after {
+  content: '';
+  position: absolute;
+  height: 4px;
+  background-image: linear-gradient(90deg, #222, #555, #222);
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.timeline-item-horizontal {
+  width: var(--item-width);
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* The dot with a glowing effect */
+.timeline-dot-horizontal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-color);
+  border: 4px solid var(--line-color);
+  border-radius: 50%;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.timeline-item-horizontal:hover .timeline-dot-horizontal {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px var(--dot-glow-color);
+}
+
+/* The content card with shadows and improved hover */
+.timeline-content-horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--card-width);
+  padding: 1.25rem;
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.timeline-item-horizontal:hover .timeline-content-horizontal {
+  transform: translateX(-50%) translateY(-10px) scale(1.03);
+  border-color: rgb(255, 255, 255);
+}
+.timeline-item-horizontal:nth-child(odd):hover .timeline-content-horizontal {
+  transform: translateX(-50%) translateY(10px) scale(1.03);
+}
+
+/* Position ODD cards BELOW the line */
+.timeline-item-horizontal:nth-child(odd) .timeline-content-horizontal {
+  top: 50%;
+  margin-top: var(--card-gap);
+}
+
+/* Position EVEN cards ABOVE the line */
+.timeline-item-horizontal:nth-child(even) .timeline-content-horizontal {
+  bottom: 50%;
+  margin-bottom: var(--card-gap);
+}
+
+/* The connecting arrow */
+.timeline-content-horizontal::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  width: 0;
+  border: 10px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.timeline-item-horizontal:nth-child(odd) .timeline-content-horizontal::before {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: var(--border-color);
+}
+
+.timeline-item-horizontal:nth-child(even) .timeline-content-horizontal::before {
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: var(--border-color);
+}
+
+.timeline-item-horizontal:hover .timeline-content-horizontal::before {
+    border-top-color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+/* Typography */
+.timeline-date-horizontal {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.timeline-title-horizontal {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--primary-text-color);
+  font-weight: 600;
+  text-align: center;
+}
+
+.timeline-icon {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 1rem;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  /* Adjust sizing variables for smaller screens */
+  :root {
+    --item-width: 260px;
+    --card-width: 220px;
+    --card-gap: 35px;
+    --timeline-height: 360px;
+  }
+
+  .timeline-container-horizontal {
+    margin: 2rem auto;
+    padding: 1rem 0;
+  }
+  
+  /* Recalculate min-width based on new item width. 
+     (10 items * 260px = 2600px) 
+     Adjust if you have a different number of items. */
+  .timeline-horizontal {
+    min-width: 2600px; 
+    padding: 0 25px;
+  }
+
+  .timeline-heading {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-title-horizontal {
+    font-size: 1rem;
+  }
+
+  .timeline-date-horizontal {
+    font-size: 0.8rem;
+  }
+
+  /* Reduce hover effect on touch devices for better feel */
+  .timeline-item-horizontal:hover .timeline-content-horizontal {
+    transform: translateX(-50%) translateY(-5px) scale(1.02);
+  }
+  .timeline-item-horizontal:nth-child(odd):hover .timeline-content-horizontal {
+    transform: translateX(-50%) translateY(5px) scale(1.02);
+  }
+}
